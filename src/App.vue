@@ -8,13 +8,22 @@
       checkBoxProp
       badge="ttitle"
       dropdownProp
-    />
+      @discardListInNode="discardListInNode"
+    >
+  <template #actions>
+    testjhaadshjsahjdbhjasbhjjbhdasbhj
+  </template>
+  </dd-tree>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import DdTree from "./components/Tree/index.vue"
+
+const discardListInNode = (item) => {
+  console.log(item);
+}
 
 function generateArrayWithUniqueIds(count, maxDepth) {
   let nextId = 1;
