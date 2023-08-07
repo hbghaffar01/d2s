@@ -33,12 +33,16 @@
       @TrackEditNode="emits('TrackEditNode', $event)"
       @selectedCheckBoxes="emits('selectedCheckBoxes', $event)"
       @dropdownValue="emits('dropdownValue', $event)"
+      @updateEditList="updateEditList"
+      @discardEditChanges="discardEditChanges"
+      @addListInNode="addListInNode"
+      @discardListInNode="discardListInNode"
     >
     <template #dropdown="{disabled, isSelected, open}">
         <slot name="dropdown" :disabled="disabled" :isSelected="isSelected" :open="open"></slot>
     </template>
     <template #actions="{selectedItem, item, values, buttons, isSelected, showIcon}">
-      <slot name="actions" :selectedItem="selectedItem" :item="item" :values="values" :buttons="buttons" :isSelected="isSelected" :showIcon="showIcon"></slot>
+      <slot name="actions" :selectedItem="selectedItem" :isSelected="isSelected" :item="item" :values="values" :buttons="buttons" :showIcon="showIcon"></slot>
   </template>
     <template #checkbox="{checkBoxProp, open, item, disabled}">
       <slot name="checkbox" :checkBoxProp="checkBoxProp" :item="item" :open="open" :disabled="disabled"></slot>
@@ -77,6 +81,22 @@ const emits = defineEmits([
   "selectedCheckBoxes",
   "dropdownValue",
 ]);
+
+const updateEditList = (item) => {
+  emits('updateEditList', item)
+};
+
+const discardEditChanges = (item) => {
+  emits('discardEditChanges', item)
+};
+
+const addListInNode = (item) => {
+  emits('addListInNode', item)
+};
+
+const discardListInNode = (item) => {
+  emits('discardListInNode', item)
+};
 
 const props = defineProps({
   list: {

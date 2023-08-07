@@ -197,6 +197,10 @@
             @TrackEditNode="emits('TrackEditNode', $event)"
             @selectedCheckBoxes="emits('selectedCheckBoxes', $event)"
             @dropdownValue="emits('dropdownValue', $event)"
+            @updateEditList="emits('updateEditList', $event)"
+            @discardEditChanges="emits('discardEditChanges', $event)"
+            @addListInNode="emits('addListInNode', $event)"
+            @discardListInNode="emits('discardListInNode', $event)"
           >
             <template v-if="checkBoxProp" #checkbox>
               <slot

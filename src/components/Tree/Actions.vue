@@ -10,7 +10,7 @@
         class="!dd-h-6"
         :disabled="disabled"
       >
-        <span class="dd-text-sm dd-font-medium">{{ button?.label }}</span>
+        {{ button?.label }}
         <div ref="svgRef" class="svgContainer" :value="button.id">
           <svgIcon
             class="dd-flex dd-items-center dd-justify-center"
