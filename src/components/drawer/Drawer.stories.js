@@ -1,6 +1,5 @@
 // import MyButton from './Button.vue';
 import DdDrawer from "./index.vue";
-import DdButton from "../buttons/index.vue";
 import { action } from "@storybook/addon-actions";
 import { ref } from "vue";
 
@@ -14,24 +13,13 @@ export const Default = {
   render: (args) => ({
     components: {
       DdDrawer,
-      DdButton
     },
     setup() {
       const onClickMethod = () => action("clicked");
-      const show = ref(false);
-      const cancel = () => {
-        show.value = false;
-      }
-      const close = () => {
-        show.value = false;
-      }
-      const OpenDrawer = () => {
-        show.value = true;
-      };
-      return { args, show, onClickMethod, OpenDrawer, cancel, close };
+      const show = ref(true);
+      return { args, show, onClickMethod };
     },
-    template: `<dd-button title="Default Drawer" content="textOnly" type="secondary" @click="OpenDrawer"/>
-    <dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" v-bind="args" @cancel="cancel" @close="close" />`,
+    template: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" v-bind="args" />`,
   }),
   argTypes: {
     title: {
@@ -108,24 +96,13 @@ export const PrimaryHeader = {
   render: (args) => ({
     components: {
       DdDrawer,
-      DdButton
     },
     setup() {
       const onClickMethod = () => action("clicked");
-      const show = ref(false);
-      const cancel = () => {
-        show.value = false;
-      }
-      const close = () => {
-        show.value = false;
-      }
-      const OpenDrawer = () => {
-        show.value = true;
-      };
-      return { args, show, onClickMethod, OpenDrawer, cancel, close };
+      const show = ref(true);
+      return { args, show, onClickMethod };
     },
-    template: `<dd-button title="primary Header" content="textOnly" type="secondary" @click="OpenDrawer"/>
-    <dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" primaryHeader="true" footer="false" v-bind="args" @close="close" @cancel="cancel" />`,
+    template: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" primaryHeader="true" footer="false" v-bind="args" />`,
   }),
   argTypes: {
     title: {
@@ -202,24 +179,13 @@ export const LeftDrawer = {
   render: (args) => ({
     components: {
       DdDrawer,
-      DdButton
     },
     setup() {
       const onClickMethod = () => action("clicked");
-      const show = ref(false);
-      const cancel = () => {
-        show.value = false;
-      }
-      const close = () => {
-        show.value = false;
-      }
-      const OpenDrawer = () => {
-        show.value = true;
-      };
-      return { args, show, onClickMethod, OpenDrawer, cancel, close };
+      const show = ref(true);
+      return { args, show, onClickMethod };
     },
-    template: `<dd-button title="Left Drawer" content="textOnly" type="secondary" @click="OpenDrawer"/>
-    <dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" primaryHeader="true" footer="true" position="left" v-bind="args" @cancel="cancel" @close="close" />`,
+    template: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" primaryHeader="true" footer="true" position="left" v-bind="args" />`,
   }),
   argTypes: {
     title: {
@@ -296,24 +262,13 @@ export const Footer = {
   render: (args) => ({
     components: {
       DdDrawer,
-      DdButton
     },
     setup() {
       const onClickMethod = () => action("clicked");
-      const show = ref(false);
-      const cancel = () => {
-        show.value = false;
-      }
-      const close = () => {
-        show.value = false;
-      }
-      const OpenDrawer = () => {
-        show.value = true;
-      };
-      return { args, show, onClickMethod, OpenDrawer, cancel, close };
+      const show = ref(true);
+      return { args, show, onClickMethod };
     },
-    template: `<dd-button title="Footer Drawer" content="textOnly" type="secondary" @click="OpenDrawer"/>
-    <dd-drawer @close="onClickMethod" v-model="show" title="Header" footer="true" size="40" v-bind="args" @cancel="cancel" @close="close" />`,
+    template: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" footer="true" size="40" v-bind="args" />`,
   }),
   argTypes: {
     title: {
@@ -405,7 +360,7 @@ PrimaryHeader.parameters = {
 LeftDrawer.parameters = {
   docs: {
     source: {
-      code: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" primaryHeader="true" footer position="left" />`,
+      code: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" size="30" primaryHeader="true" footer="true" position="left" />`,
     },
   },
 };
@@ -413,7 +368,7 @@ LeftDrawer.parameters = {
 LeftDrawer.parameters = {
   docs: {
     source: {
-      code: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" footer size="40" />`,
+      code: `<dd-drawer @close="onClickMethod" v-model="show" title="Header" footer="true" size="40" />`,
     },
   },
 };
